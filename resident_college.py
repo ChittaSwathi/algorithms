@@ -3,46 +3,48 @@ from collections import deque
 def stable_matching(student_pref, college_pref, positions):
     clgq = deque(college_pref.keys())
     
+    student_priority = {stud: {j:i for i,j in enumerate(student_pref[stud])} 
+                        for stud in student_pref} #reduces time complexity n of index() function
+    
     clg_final = {i:[] for i in college_pref}
     clg_visited = {i:[] for i in college_pref}
     student_admit = {i:None for i in student_pref}
 
     while clgq:
-        print('college queue', clgq)
+        
         clg = clgq.popleft()
         for std in college_pref[clg]:
             
+            # college positions are filled
             if not positions[clg] > 0:
                 break
+        
+            # student has already been visited
             if std in clg_visited[clg]:
                 continue
             
-            clg_visited[clg].append(std)
+            clg_visited[clg].append(std) #to not repeat
             
             if not student_admit[std]:
                 student_admit[std] = clg
                 clg_final[clg].append(std)
                 positions[clg] -= 1
             
-            elif student_pref[std].index(clg) < student_pref[std].index(student_admit[std]):
-                    #pre assigned clg change
-                    clg_final[student_admit[std]].remove(std)
-                    positions[student_admit[std]] += 1
-                    clgq.append(student_admit[std])
+            elif student_priority[std][clg] < student_priority[std][student_admit[std]]:
+                #pre assigned clg change
+                clg_final[student_admit[std]].remove(std)
+                positions[student_admit[std]] += 1
+                clgq.append(student_admit[std])
 
-                    #student change
-                    student_admit[std] = clg
-                    clg_final[clg].append(std)
-                    positions[clg] -= 1
+                #student change
+                student_admit[std] = clg
+                clg_final[clg].append(std)
+                positions[clg] -= 1
 
     return student_admit,clg_final
                     
                     
                 
-
-
-
-
 student_pref = {'a':['g','r','s'],
                 'b':['r','s','g'],
                 'c':['g','r','s'],
