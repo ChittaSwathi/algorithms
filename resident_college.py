@@ -1,6 +1,6 @@
 from collections import deque
 
-def stable_matching(student_pref, college_pref, positions):
+def stable_matching_college_optimal(student_pref, college_pref, positions):
     clgq = deque(college_pref.keys())
     
     student_priority = {stud: {j:i for i,j in enumerate(student_pref[stud])} 
@@ -43,8 +43,6 @@ def stable_matching(student_pref, college_pref, positions):
 
     return student_admit,clg_final
                     
-                    
-                
 student_pref = {'a':['g','r','s'],
                 'b':['r','s','g'],
                 'c':['g','r','s'],
@@ -57,6 +55,7 @@ college_pref = {'s':['a','b','c','d','e'],
 
 positions = {'s':1, 'r':1, 'g':2}
 
-student, college = stable_matching(student_pref, college_pref, positions)
+student, college = stable_matching_college_optimal(student_pref, college_pref, positions)
+print('############# FOR COLLEGE OPTIMAL PROBLEM ##############')
 print('student selection', student)
 print('college selection', college)
