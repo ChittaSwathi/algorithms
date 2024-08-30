@@ -2,21 +2,6 @@ from collections import deque
 
 def gale_shapley_algorithm(men_pref, women_pref):
     
-    """
-    Initialize all men and women to free
-    while there exist a free man m who still has a woman w to propose to 
-    {
-        w = m's highest ranked such woman to whom he has not yet proposed
-        if w is free
-        (m, w) become engaged
-        else some pair (m', w) already exists
-        if w prefers m to m'
-            (m, w) become engaged
-            m' becomes free
-        else
-            (m', w) remain engaged    
-    }
-    """
     free_men = [i for i in men_pref]
     men_proposal = {i:[] for i in men_pref}
     women_partner = {i:None for i in women_pref}
@@ -85,7 +70,11 @@ women_pref2 = {
     'B': ['a', 'd', 'b', 'c'],
     'C': ['d', 'b', 'c', 'a'],
     'D': ['b', 'c', 'a', 'd'],
-    'E': ['c', 'd', 'b', 'a']
+    'E': ['c', 'd', 'b', 'a'],
+    'F': ['c', 'd', 'b', 'a'],
+    'G': ['a', 'd', 'b', 'c'],
+    'H': ['a', 'b', 'c', 'd'],
+    'I': ['d', 'b', 'c', 'a'],
 }
 
 result = gale_shapley_algorithm(men_pref, women_pref)
