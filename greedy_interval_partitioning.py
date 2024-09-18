@@ -3,10 +3,7 @@ from collections import defaultdict
 
 
 lectures  = [(1,4), (2,6), (4,7), (5,9), (3,5)] #each tuple represents (start,end) time of a lecture
-
-#sort the lectures by their start time
-lectures.sort()
-
+lectures.sort() #sort the lectures by their start time
 assigned_lecture = defaultdict(list) #stores class number and their respective lectures
 classrooms = [] #stores end time of respective assigned lectures
 
@@ -58,6 +55,7 @@ def optimized_partitioning(lectures, classrooms, assigned_lecture):
 
 # classrooms, assigned_lecture = brute_force(lectures, classrooms, assigned_lecture)
 classrooms, assigned_lecture = optimized_partitioning(lectures, classrooms, assigned_lecture)
+
 print('final allocated classrooms to lectures are ', assigned_lecture)
 print('Total number of classrooms needed for the day are ',len(classrooms))
 
