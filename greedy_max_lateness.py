@@ -1,4 +1,4 @@
-#Estimated due date / maximum lateness scheduling
+#Estimated due date / maximum lateness scheduling - O(nlogn) -- sorting O(nlogn), iteration -O(n)
 
 def max_lateness_scheduling(tasks):
     # Sort tasks by their due dates (Earliest Due Date first)
