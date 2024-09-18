@@ -1,4 +1,9 @@
 # time complexity O(n.k)
+"""The Optimal Offline Caching (Belady’s Algorithm) is fundamentally based on knowing future requests in advance, 
+which means that in practice, it requires scanning future requests to determine which page to evict. 
+This theoretical algorithm is already optimal in terms of minimizing page faults, but it’s not efficient in practice 
+due to the lookahead mechanism"""
+#if done in LRU cache -- time complexity would reduce to O(1)
 
 from collections import defaultdict
 
