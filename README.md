@@ -9,3 +9,16 @@ Stable Marriage problem: (1:1 mapping between women and men)
 College Residents problem: (1:n mapping b/w college and residents)
 --------------------------
 More Students, less colleges, limited college seats -- Some students may not be mapped
+
+
+Greedy Algorithms
+-----------------
+Interval scheduling
+Interval Partitioning
+
+
+Divide & Conquer
+-----------------
+merge sort
+
+
