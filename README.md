@@ -1,5 +1,7 @@
-# Gale Shapley algorithm
+# Algorithms and Paradigms
 
+Gale Shapley algorithm
+----------------------
 Stable Marriage problem: (1:1 mapping between women and men)
 ---------------------------
 1. Equal men and women (n*n)
